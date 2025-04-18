@@ -14,6 +14,7 @@ namespace banana {
 
 bool System::initialize(void* data, size_t size) {
     xlink2::ResourceHeader* header = reinterpret_cast<xlink2::ResourceHeader*>(data);
+    // std::cout << "test";
     if (header == nullptr || size != header->fileSize) {
         throw ResourceError("Invalid input resource");
     }

@@ -215,7 +215,7 @@ const xlink2::ResourceHeader Serializer::calcOffsets() {
         .numCurvePoints = static_cast<s32>(curvePointCount),
         .exRegionPos = exRegionOffset,
         .numUsers = static_cast<s32>(mSystem->mUsers.size()),
-        .padding = {},
+        // .padding = {},
         .conditionTablePos = conditionTableOffset,
         .nameTablePos = nameTableOffset,
     };
@@ -305,12 +305,7 @@ void Serializer::writeUser(const User& user, const u32 hash) {
     
     const xlink2::ResUserHeader header = {
         .isSetup = 0,
-#if XLINK_TARGET == TOTK
         .localPropertyCount = static_cast<s16>(user.mLocalProperties.size()),
-        .unk = user.mUnknown,
-#elif XLINK_TARGET == S3
-        .localPropertyCount = static_cast<s32>(user.mLocalProperties.size()),
-#endif
         .callCount = static_cast<s32>(user.mAssetCallTables.size()),
         .assetCount = info.assetCount,
         .randomContainerCount = info.randomContainerCount,

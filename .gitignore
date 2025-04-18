@@ -66,3 +66,6 @@ build*/*
 *.bin
 *.yaml
 *.yml
+.idea/*
+cmake-build-debug-wsl-clang/*
+/cmake-build-debug

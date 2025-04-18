@@ -24,6 +24,7 @@ const std::string parseInput(int argc, char** argv, s32 index) {
 }
 
 int main(int argc, char** argv) {
+    // std::cout << "test";
 #ifdef _WIN32
     SetConsoleOutputCP(CP_UTF8);
 #endif

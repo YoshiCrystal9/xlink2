@@ -138,15 +138,8 @@ public:
         return reinterpret_cast<uintptr_t>(mExRegion);
     }
 
-#if XLINK_TARGET == TOTK
-    static constexpr u32 sELinkResourceVersion = 0x24;
-    static constexpr u32 sSLinkResourceVersion = 0x21;
-#elif XLINK_TARGET == S3
-    static constexpr u32 sELinkResourceVersion = 0x22;
-    static constexpr u32 sSLinkResourceVersion = 0x1f;
-#else
-    static_assert(false, "Invalid XLINK_TARGET!");
-#endif
+    static constexpr u32 sELinkResourceVersion = 0x1E;
+    static constexpr u32 sSLinkResourceVersion = 0x1C;
 
 private:
     xlink2::ResourceHeader* mHeader;

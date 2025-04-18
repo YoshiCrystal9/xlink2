@@ -17,7 +17,7 @@ struct ResActionSlot {
 // associated with a group of ResActionTriggers
 struct ResAction {
     u64 nameOffset;
-    s16 triggerStartIdx;
+    s32 triggerStartIdx;
     bool enableMatchStart;
     char padding;
     u32 triggerEndIdx; // may just be padding

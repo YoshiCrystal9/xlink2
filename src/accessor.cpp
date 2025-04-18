@@ -1,10 +1,7 @@
 #include "accessor.h"
 #include "util/common.h"
-
-#ifndef NDEBUG
 #include <format>
 #include <iostream>
-#endif
 
 namespace banana {
 
@@ -20,6 +17,8 @@ bool ResourceAccessor::load(void* data) {
 
     mParamDefineTable = reinterpret_cast<xlink2::ResParamDefineTableHeader*>(util::align(reinterpret_cast<uintptr_t>(mUserOffsetArray + mHeader->numUsers), 8));
     mUserParams = reinterpret_cast<xlink2::ResParamDefine*>(mParamDefineTable + 1); // (uintptr_t)pdt + sizeof(pdt)
+    //todo: fix massetparams stuff
+    std::cout << "falla en massetparams, parte de mparamdefinetable" << std::endl;
     mAssetParams = mUserParams + mParamDefineTable->numUserParams;
     mTriggerParams = mAssetParams + mParamDefineTable->numAssetParams;
     mPdtNameTable = reinterpret_cast<char*>(mTriggerParams + mParamDefineTable->numTriggerParams);
